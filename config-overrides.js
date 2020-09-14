@@ -1,14 +1,25 @@
-const {injectBabelPlugin}=require('react-app-rewired')
-module.exports=function override(config,env){
-    //antd按需加载
-    config=injectBabelPlugin([
-        'import',{libraryName:'antd',libraryDirectory:'es',style:'css'}
-    ],config);
 
-    //添加装饰器能力
-    config=injectBabelPlugin(
-        ['@babel/plugin-proposal-decorators',{'legacy':true}],
-        config,
-    )
-    return config;
-}
+const {
+  override,
+  fixBabelImports,
+  addLessLoader,
+  addDecoratorsLegacy
+} = require("customize-cra");
+
+module.exports = override(
+  fixBabelImports("import", {
+    // antd按需加载
+    libraryName: "antd",
+    libraryDirectory: "es",
+    style: true
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: {
+      "@primary-color": "red",
+      "@border-color-base": "green",
+      "@link-color": "orange"
+    }
+  }),
+  addDecoratorsLegacy() //配置装饰器
+);

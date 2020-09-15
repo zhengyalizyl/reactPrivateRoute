@@ -5,7 +5,7 @@ import UserPage from "../pages/UserPage.jsx";
 import _404Page from "../pages/_404Page";
 import LoginPage from "../pages/LoginPage";
 import PrivateRoute from "../pages/PrivateRoute";
-// import BottomNav from "../components/BottomNav";
+import BottomNav from "../components/BottomNav";
 export const routes = [
 {
   path: "/",
@@ -31,15 +31,15 @@ export default function Routes(props) {
   <Link to="/">首页</Link>
   <Link to="/user">用户中心</Link>
   <Link to="/login">登录</Link>
-{/*    <BottomNav /> */}
+ <BottomNav />
    <Switch>
-{/*    {routes.map(Route_ =>
-     Route_.auth ? (
-      <Route_.auth key={Route_.path + "route"} {...Route_} />
-    ) : (
-      <Route key={Route_.path + "route"} {...Route_} />
-    )
-   )} */}
+{/* //    {routes.map(Route_ =>
+//      Route_.auth ? (
+//       <Route_.auth key={Route_.path + "route"} {...Route_} />
+//     ) : (
+//       <Route key={Route_.path + "route"} {...Route_} />
+//     )
+//    )} */}
    <Route exact path="/" component={HomePage} />
    <Route path="/login" component={LoginPage} />
    <PrivateRoute path="/user" component={UserPage} />

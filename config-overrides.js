@@ -14,11 +14,13 @@ module.exports = override(
     style: true
   }),
   addLessLoader({
-    javascriptEnabled: true,
-    modifyVars: {
-      "@primary-color": "red",
-      "@border-color-base": "green",
-      "@link-color": "orange"
+    lessOptions:{
+      javascriptEnabled: true,
+      modifyVars: {
+        "@primary-color": "red",
+        "@border-color-base": "green",
+        "@link-color": "orange"
+      }
     }
   }),
   addDecoratorsLegacy() //配置装饰器
